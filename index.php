@@ -1,3 +1,17 @@
+<?php
+	//Инициализируем сессию:
+	session_start();
+	if (!isset($_SESSION['counter'])) {
+		$_SESSION['counter'] = 1;
+	} else {
+		$_SESSION['counter'] = $_SESSION['counter'] + 1;
+	}
+	//Выведем значение счетчика:
+	echo 'Вы обновили эту страницу '.$_SESSION['counter'].' раз!</br></br>';
+
+      // unset($_SESSION['var']);         -- удаление переменной сессии 
+      // session_destroy();               -- удалить все переменные сессии для данного пользователя
+?>
 <?php include 'config/lib.php'; ?> <!-- getPage(array $pages) -->
 <?php $pages = include 'config/pages.php';   
       echo"var_dump ($ pages ) : "; 
